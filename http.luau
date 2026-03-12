@@ -15,7 +15,6 @@ local logname = string.format("%d-%s-log.txt", game.PlaceId, os.date("%d_%m_%y")
 if options.SaveLogs then
     writefile(logname, string.format("Http Logs from %s\n\n", os.date("%d/%m/%y"))) 
 end;
-
 local Serializer = loadstring(game:HttpGet("https://raw.githubusercontent.com/NotDSF/leopard/main/rbx/leopard-syn.lua"))();
 local clonef = clonefunction;
 local pconsole = print;
@@ -46,7 +45,7 @@ local methods = {
 }
 
 Serializer.UpdateConfig({ highlighting = options.Highlighting });
-
+pconsole("hi")
 local RecentCommit = game.HttpService:JSONDecode(game:HttpGet("https://api.github.com/repos/NotDSF/HttpSpy/commits?per_page=1&path=init.lua"))[1].commit.message;
 local OnRequest = Instance.new("BindableEvent");
 
@@ -56,7 +55,7 @@ local function printf(...)
     end;
     return pconsole(format(...));
 end;
-
+printf("print")
 local function ConstantScan(constant)
     for i,v in Pairs(getgc(true)) do
         if type(v) == "function" and islclosure(v) and getfenv(v).script == getfenv(saveinstance).script and table.find(debug.getconstants(v), constant) then
@@ -224,4 +223,3 @@ function API:WhitelistUrl(url)
 end;
 
 return API;
-pconsole("hi")
