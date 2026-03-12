@@ -18,7 +18,7 @@ end;
 
 local Serializer = loadstring(game:HttpGet("https://raw.githubusercontent.com/NotDSF/leopard/main/rbx/leopard-syn.lua"))();
 local clonef = clonefunction;
-local pconsole = clonef(print);
+local pconsole = print;
 local format = clonef(string.format);
 local gsub = clonef(string.gsub);
 local match = clonef(string.match);
@@ -224,4 +224,4 @@ function API:WhitelistUrl(url)
 end;
 
 return API;
- 
+pconsole("hi")
